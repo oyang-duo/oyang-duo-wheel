@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>오양 듀오 돌림판</title>
+  <meta name="description" content="오양 듀오 추석 돌림판">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="꽝 없는 뽑기하고 추석 선물 50개 받기">
+  <meta property="og:description" content="최대 550만원 오양 듀오까지 나와요">
+  <meta property="og:image" content="images/preview.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>오양 듀오 돌림판</h1>
+      <p>가운데 버튼을 눌러 돌리고, 다시 누르면 관성으로 멈춥니다.</p>
+    </header>
+
+    <section class="wheel-section">
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="760" height="760" aria-label="돌림판"></canvas>
+        <button id="spinButton" class="spin-button" type="button">돌리기</button>
+      </div>
+    </section>
+
+    <section class="legend">
+      <div class="legend-item"><span class="dot fail"></span> 꽝</div>
+      <div class="legend-item"><span class="dot pig"></span> 돼지저금통</div>
+      <div class="legend-item"><span class="dot katsu"></span> 오양민 돈까스</div>
+    </section>
+  </main>
+
+  <div id="resultOverlay" class="overlay hidden" aria-hidden="true">
+    <div id="resultCard" class="result-card">
+      <button id="closeOverlay" class="close-button" type="button" aria-label="닫기">×</button>
+      <div id="floatingArea" class="floating-area"></div>
+      <div id="resultContent" class="result-content"></div>
+      <button id="retryButton" class="retry-button" type="button">다시 돌리기</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
