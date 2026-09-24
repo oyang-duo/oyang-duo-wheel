@@ -151,8 +151,13 @@ function requestStop() {
 
 function getWinningItem() {
   const itemAngle = (Math.PI * 2) / wheelItems.length;
-  const normalized = ((-Math.PI / 2 - angle) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+
+  // drawWheel()에서 0번 칸의 시작점을 'angle - 90°'로 그리므로,
+  // 화면 위쪽(12시 방향) 포인터가 가리키는 칸은 -angle만 보정하면 된다.
+  // 이전 식은 -90°를 한 번 더 빼서 결과가 3칸(12칸 기준) 어긋났다.
+  const normalized = ((-angle) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
   const index = Math.floor(normalized / itemAngle) % wheelItems.length;
+
   return wheelItems[index];
 }
 
