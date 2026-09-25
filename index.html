@@ -10,11 +10,17 @@
   <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="꽝 없는 뽑기하고 추석 선물 50개 받기">
   <meta property="og:description" content="최대 550만원 오양 듀오까지 나와요">
-  <meta property="og:image" content="images/preview.png">
+  <meta property="og:url" content="https://oyang-duo.github.io/oyang-duo-wheel/">
+  <meta property="og:image" content="https://oyang-duo.github.io/oyang-duo-wheel/images/preview.png">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
+  <video class="background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <div class="video-shade" aria-hidden="true"></div>
+
   <main class="page">
     <header class="hero">
       <h1>오양 듀오 돌림판</h1>
@@ -23,20 +29,14 @@
     <section class="wheel-section">
       <div class="wheel-wrap">
         <div class="pointer" aria-hidden="true"></div>
-        <canvas id="wheel" width="760" height="760" aria-label="돌림판"></canvas>
+        <canvas id="wheel" width="760" height="760" aria-label="오양 듀오 돌림판"></canvas>
         <button id="spinButton" class="spin-button" type="button">돌리기</button>
       </div>
-    </section>
-
-    <section class="legend">
-      <div class="legend-item"><span class="dot fail"></span> 꽝</div>
-      <div class="legend-item"><span class="dot pig"></span> 돼지저금통</div>
-      <div class="legend-item"><span class="dot katsu"></span> 오양민 돈까스</div>
     </section>
   </main>
 
   <div id="resultOverlay" class="overlay hidden" aria-hidden="true">
-    <div id="resultCard" class="result-card">
+    <div class="result-wrap">
       <button id="closeOverlay" class="close-button" type="button" aria-label="닫기">×</button>
       <div id="floatingArea" class="floating-area"></div>
       <div id="resultContent" class="result-content"></div>
@@ -44,6 +44,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
