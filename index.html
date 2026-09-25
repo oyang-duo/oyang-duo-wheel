@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://oyang-duo.github.io/oyang-duo-wheel/">
   <meta property="og:image" content="https://oyang-duo.github.io/oyang-duo-wheel/images/preview.png">
 
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <video class="background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
@@ -33,6 +33,11 @@
         <button id="spinButton" class="spin-button" type="button">돌리기</button>
       </div>
     </section>
+
+    <section class="music-section" aria-label="배경음악">
+      <div class="music-label">BGM</div>
+      <div id="youtubePlayer"></div>
+    </section>
   </main>
 
   <div id="resultOverlay" class="overlay hidden" aria-hidden="true">
@@ -44,6 +49,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=4"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

@@ -7,6 +7,40 @@ const floatingArea = document.getElementById('floatingArea');
 const retryButton = document.getElementById('retryButton');
 const closeOverlay = document.getElementById('closeOverlay');
 
+
+let youtubePlayer = null;
+let youtubeReady = false;
+let bgmStarted = false;
+
+window.onYouTubeIframeAPIReady = function () {
+  youtubePlayer = new YT.Player('youtubePlayer', {
+    width: 320,
+    height: 200,
+    videoId: 'fQTWGdbvAS4',
+    playerVars: {
+      autoplay: 0,
+      controls: 1,
+      loop: 1,
+      playlist: 'fQTWGdbvAS4',
+      rel: 0,
+      playsinline: 1
+    },
+    events: {
+      onReady: () => {
+        youtubeReady = true;
+      }
+    }
+  });
+};
+
+function startBgmOnce() {
+  if (bgmStarted || !youtubeReady || !youtubePlayer) return;
+  bgmStarted = true;
+  youtubePlayer.setVolume(55);
+  youtubePlayer.playVideo();
+}
+
+
 const wheelItems = [
   { type: 'fail',  label: '꽝',             color: '#ff6678' },
   { type: 'pig',   label: '돼지저금통',    color: '#f58fc0' },
@@ -142,6 +176,7 @@ function animate() {
 function startSpin() {
   if (isSpinning) return;
 
+  startBgmOnce();
   closeOverlayNow();
   isSpinning = true;
   isStopping = false;
