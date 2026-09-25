@@ -74,19 +74,26 @@ function drawWheel() {
     ctx.rotate(start + itemAngle / 2);
     ctx.textAlign = 'right';
     ctx.fillStyle = '#1f2430';
-    ctx.font = `900 ${Math.max(16, size * 0.035)}px system-ui, sans-serif`;
 
-    const textRadius = radius * 0.79;
-    let label = item.label;
-    if (label === '오양민 돈까스') label = '오양민';
-    ctx.fillText(label, textRadius, 8);
+    // 모바일에서는 긴 글자가 옆 칸까지 넘어가지 않도록 더 작게 표시
+    const isMobile = size < 520;
+    const mainFontSize = isMobile ? Math.max(11, size * 0.027) : Math.max(16, size * 0.035);
+    const subFontSize = isMobile ? Math.max(9, size * 0.021) : Math.max(12, size * 0.024);
+    const lineGap = isMobile ? 18 : 24;
+    const textRadius = radius * (isMobile ? 0.76 : 0.79);
+
+    ctx.font = `900 ${mainFontSize}px "Malgun Gothic", "Apple SD Gothic Neo", sans-serif`;
 
     if (item.label === '오양민 돈까스') {
-      ctx.font = `700 ${Math.max(12, size * 0.024)}px system-ui, sans-serif`;
-      ctx.fillText('돈까스', textRadius, 32);
+      ctx.fillText('오양민', textRadius, -3);
+      ctx.font = `700 ${subFontSize}px "Malgun Gothic", "Apple SD Gothic Neo", sans-serif`;
+      ctx.fillText('돈까스', textRadius, -3 + lineGap);
     } else if (item.label === '돼지저금통') {
-      ctx.font = `700 ${Math.max(12, size * 0.024)}px system-ui, sans-serif`;
-      ctx.fillText('저금통', textRadius, 32);
+      ctx.fillText('돼지', textRadius, -3);
+      ctx.font = `700 ${subFontSize}px "Malgun Gothic", "Apple SD Gothic Neo", sans-serif`;
+      ctx.fillText('저금통', textRadius, -3 + lineGap);
+    } else {
+      ctx.fillText(item.label, textRadius, 7);
     }
 
     ctx.restore();
